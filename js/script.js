@@ -64,7 +64,7 @@ const restartGame = () => {
 const scoreNumber = document.querySelector(".score-number");
 const scoreFunction = () => {
   //pontuação
-  score += Number(pipe.offsetLeft);
+  score += parseInt(Number(pipe.offsetLeft) / 1000);
   console.log(score);
-  scoreNumber.textContent += score;
+  scoreNumber.textContent = `Pontuação: ${score}`;
 };
