@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-board {
+  width: 100%;
+  height: 100vh;
+  border-bottom: 15px solid green;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.pipe {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  animation: pipe-animation 1.5s infinite linear; /*chama a animação na imagem*/
+}
+.mario {
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+}
+
+.jump {
+  animation: jump 500ms ease-out;
+}
+
+.clouds {
+  position: absolute;
+  width: 550px;
+  animation: clouds-animation 20s infinite linear;
+  margin-top: 20px;
+}
+
+.game-over {
+  padding: 0 16px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-over-text {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  max-width: 264px;
+  font-size: 60px;
+  line-height: 66px;
+  text-align: center;
+  font-size: bold;
+  letter-spacing: -1px;
+}
+
+.game-over-restart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  color: white;
+  width: 100%;
+  max-width: 264px;
+  margin-top: 15px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background: #777777;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-over-restart-button:hover {
+  background: gray;
+}
+
+.game-over-restart-button:active {
+  background: #777777;
+}
+
+.score {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+/* animação do pipe passando na tela  */
+@keyframes pipe-animation {
+  /* começa em -80px  */
+  from {
+    right: -80px;
+  }
+  /* vai até 100%  */
+  to {
+    right: 100%;
+  }
+}
+/* animação do pulo */
+@keyframes jump {
+  /* inicio da animação de pulo*/
+  0% {
+    bottom: 0;
+  }
+  40% {
+    bottom: 180px;
+  }
+  /* meio da animação de pulo */
+  50% {
+    bottom: 180px;
+  }
+  60% {
+    bottom: 180px;
+  }
+  /* final da animação de pulo */
+  100% {
+    bottom: 0;
+  }
+}
+/* animação das nuvens passando */
+@keyframes clouds-animation {
+  from {
+    right: -550px;
+  }
+  to {
+    right: 100%;
+  }
+}
