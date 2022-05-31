@@ -13,7 +13,7 @@ document.addEventListener("keydown", jump); //keydown é quando qualquer tecla d
 const pipe = document.querySelector(".pipe");
 const cloud = document.querySelector(".clouds");
 const gameOver = document.querySelector(".game-over");
-let score = 0;
+
 const loop = setInterval(() => {
   const pipePosition = pipe.offsetLeft; //pega o deslocamento horizontal esquerdo da posição do pipe(tubo)
   const marioPosition = +window
@@ -22,6 +22,7 @@ const loop = setInterval(() => {
   const cloudPosition = cloud.offsetLeft;
   //   console.log(marioPosition);
 
+  //verifica a posição do tubo e do mario para game over
   if (pipePosition <= 120 && marioPosition < 80 && pipePosition > 0) {
     //o if verifica se a posição do pipe é menor ou igual a 120, se a altura do mario é suficiente para estar acima do tubo quando se encontram (80px) e se a posição do tubo é maior q 0, se n tiver esse maior que 0 o tubo para quando chegar no 0
 
@@ -61,10 +62,11 @@ const restartGame = () => {
 };
 
 //pontuação
+let scoreFloat = 0;
 const scoreNumber = document.querySelector(".score-number");
 const scoreFunction = () => {
   //pontuação
-  score += parseInt(Number(pipe.offsetLeft) / 1000);
-  console.log(score);
-  scoreNumber.textContent = `Pontuação: ${score}`;
+  scoreFloat += parseFloat(Number(pipe.offsetLeft) / 10000);
+  scoreInt = parseInt(scoreFloat);
+  scoreNumber.textContent = `Pontuação: ${scoreInt}`;
 };
